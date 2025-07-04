@@ -7,10 +7,10 @@ async function fetchPayloads() {
         return;
     }
     container.innerHTML = payloads.map((payload, index) => `
-        <details>
-            <summary>Payload ${index + 1}</summary>
+        <div style="margin-bottom: 10px;">
+            <div><b>Payload ${index + 1}</b></div>
             <pre>${payload.data}</pre>
-        </details>
+        </div>
     `).join('');
 }
 

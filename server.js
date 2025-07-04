@@ -49,7 +49,7 @@ app.get('/get-config', (req, res) => {
 });
 
 // Route to handle DELETE requests to clear the payload list
-app.delete('/clear', (req, res) => {
+app.delete('/clearPayloads', (req, res) => {
     payloads = []; // Clear the payload list
     res.sendStatus(200); // Send a simple status response
 });
@@ -57,7 +57,9 @@ app.delete('/clear', (req, res) => {
 // Route to handle GET requests for JSON payloads
 app.get('/payloads', (req, res) => {
     pruneOldPayloads();
-    res.json(payloads); // Send the payloads as JSON
+    // Return only the last 10 payloads
+    const lastTen = payloads.slice(-10);
+    res.json(lastTen); // Send the last 10 payloads as JSON
 });
 
 app.get('/client.js', (req, res) => {
