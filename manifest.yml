@@ -1,0 +1,9 @@
+---
+applications:
+- name: http_receiver
+  command: node server.js
+  memory: 128m
+  instances: 1
+  path: .
+  buildpacks:
+  - nodejs_buildpack
